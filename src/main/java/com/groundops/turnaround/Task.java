@@ -6,6 +6,8 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.groundops.turnaround.TaskStatus;
+
 @Document(collection = "tasks")
 public class Task {
     @Id
@@ -23,7 +25,7 @@ public class Task {
     @Field("assigned_team")
     private String assignedTeam;
 
-    private String status;
+    private TaskStatus status;
     private List<String> dependencies;
 
     @Field("start_time")
@@ -34,7 +36,7 @@ public class Task {
 
     public Task() {}
 
-    public Task(String taskId, String flightId, String taskName, String assignedTeam, String status,
+    public Task(String taskId, String flightId, String taskName, String assignedTeam, TaskStatus status,
                 List<String> dependencies, LocalDateTime startTime, LocalDateTime endTime) {
         this.taskId = taskId;
         this.flightId = flightId;
@@ -73,10 +75,10 @@ public class Task {
     public void setAssignedTeam(String assignedTeam) {
         this.assignedTeam = assignedTeam;
     }
-    public String getStatus() {
+    public TaskStatus getStatus() {
         return status;
     }
-    public void setStatus(String status) {
+    public void setStatus(TaskStatus status) {
         this.status = status;
     }
     public List<String> getDependencies() {
