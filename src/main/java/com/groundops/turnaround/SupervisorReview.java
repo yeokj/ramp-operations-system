@@ -35,11 +35,7 @@ public class SupervisorReview {
     public String getId() {
         return id;
     }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
+    
     public String getFlightNumber() {
         return flightNumber;
     }
